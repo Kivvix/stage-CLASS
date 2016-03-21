@@ -20,7 +20,7 @@ Le principe de substitution de Liskov est une principe de programmation orienté
 
 Dans une ferme on a différents types d'animaux, des vaches et des poules, ceci va donc se représenter comme suit :
 
-![Héritage de animaux](img/hertiage_animal.png)
+![Héritage de animaux](img/heritage_animal.png)
 
 La classe *animal* contient tout ce qui est commun à une poule et une vache. On pourrait rajouter que cette classe mère peut être *abstraite*, c'est à dire que l'on peut définir un ce qu'est un animal mais on ne peut pas créer un animal qui ne serait pas d'une espèce particulière (on ne peut l'*instancier*). On parle de polymorphisme quand on a une méthode de la classe mère qui est surchargée dans la classe fille. Dans le cas de nos vaches et nos poules on peut avoir une méthode pour `faire_du_bruit` qui va produire **meuh** dans le cas de la vache et **cot cot** dans le cas de la poule, et la méthode sera virtuelle pure pour l'animal en général.
 
