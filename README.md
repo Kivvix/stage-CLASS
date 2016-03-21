@@ -80,8 +80,8 @@ Il s'agit normalement de lire les déclarations de classes `class B : public A` 
 Dans l'étape suivante il s'agira d'améliorer le modèle de classes de CLASS. Je ne connais pas CLASS ni vos techniques de développement, mais je pense que s'il y a des choix d'implémentation qui sont si différents du modèle théorique il doit y avoir une raison. Vu la taille de CLASS je pense qu'il n'est pas envisageable de repartir de zéro, il faut se baser sur l'existant.
 
 Cette étape s'éloigne de l'optimisation d'algorithmes, du calcul GP/GPU, de la parallélisation etc. mais elle reste importante pour plusieurs raisons :
-	* L'amélioration des performances d'un algorithmes passe aussi par le choix de la structure de données.
-	* Il peut être plus simple de paralléliser certaines procédures en fonction les liens entre classes.
+* L'amélioration des performances d'un algorithmes passe aussi par le choix de la structure de données.
+* Il peut être plus simple de paralléliser certaines procédures en fonction les liens entre classes.
 
 Dans cette étape il s'agira sûrement de faire du *refactoring* de code et créer des classes mères là où il y en a besoin (c'est souvent ça qui manque). Mais aussi clarifier certaines classes, peut-être remodeler certaines parties. Le travail a effectué dans cette étape dépend surtout des résultats des étapes précédentes, mais aussi de savoir s'il y a ou non la volonté de faire une refonte d'une partie de CLASS. Donc selon les besoins et la volonté de changement (je proposerai peut-être des changement qui sont mauvais et tu m'expliqueras la raison de l'implémentation actuelle) j'estime à environ *2 semaines* de travail.
 
