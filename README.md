@@ -4,7 +4,7 @@ Ce présent document n'est qu'une esquisse de ce que je pense réalisable pendan
 
 ## UML
 
-Avant de parler de code et de CLASS on va parler de modélisation. Dans le domaine de l'informatique on utilise souvent l'UML (ou une variante) qui est un langage de graphique de modélisation, c'est-à-dire qu'il permet de représenter avec un diagramme la modélisation d'un problème.
+Avant de parler de code et de CLASS on va parler de modélisation. Dans le domaine de l'informatique on utilise souvent l'UML (ou une variante) qui est un langage graphique de modélisation, c'est-à-dire qu'il permet de représenter la modélisation d'un problème avec un diagramme.
 
 L'avantage de ce langage est qu'il n'utilise pas d'informations implicites, il n'y a pas de vocabulaire propre à un domaine. Il permet donc de dialoguer entre deux personnes travaillant dans des disciplines différentes et de s'assurer que les deux aient bien compris la modélisation. Dans mes exemples je prendrai un cas que l'on à peu près autant l'un que l'autre : une ferme.
 
@@ -12,25 +12,25 @@ L'UML décrit différents types de diagrammes, le plus connu, et celui que j'uti
 
 ### L'héritage
 
-Il s'agit de la même forme d'héritage qu'en *C++*. Donc une classe *B* hérite de *A*, alors *B* a les mêmes règles que *A* mais en ajoute de nouvelles, on dit aussi que *B* est une spécification de *A* ou que *A* est la classe mère de *B*. Cela se représente comme suit en UML :
+Il s'agit de la même forme d'héritage qu'en *C++*. Donc une classe *B* hérite de *A*, alors *B* a les mêmes règles que *A* mais en ajoute de nouvelles, on dit aussi que *B* est une **spécification** de *A* ou que *A* est la classe mère de *B*. Cela se représente comme suit en UML :
 
 ![B hérite de A](img/heritage.png)
 
-Le principe de substitution de Liskov est une principe de programmation orientée objets qui indique qu'une propriété vraie pour une classe mère *A* est aussi vraie pour une classe fille *B*. C'est à dire que n'importe quelle fonction qui prend en paramètre une instance de la classe *A* doit aussi pouvoir prendre un élément de la classe fille *B*. D'après ce principe on ne peut pas créer une classe *carré* qui hérite d'une classe *rectangle* car on peut librement et indépendamment modifier la longueur et la largeur d'un rectangle, chose impossible dans la classe fille *carré* (ça fait longtemps que je n'ai pas fait de géométrie euclidienne mais il me semble que dans un carré la longueur est toujours égale à la largeur).
+Le **principe de substitution de Liskov** est une principe de programmation orientée objets qui indique qu'une propriété vraie pour une classe mère *A* est aussi vraie pour une classe fille *B*. C'est-à-dire que n'importe quelle fonction qui prend en paramètre une instance de la classe *A* doit aussi pouvoir prendre un élément de la classe fille *B*. D'après ce principe on ne peut pas créer une classe *carré* qui hérite d'une classe *rectangle* car on peut librement et indépendamment modifier la longueur et la largeur d'un rectangle, chose impossible dans la classe fille *carré* (ça fait longtemps que je n'ai pas fait de géométrie euclidienne mais il me semble que dans un carré la longueur est toujours égale à la largeur).
 
 Dans une ferme on a différents types d'animaux, des vaches et des poules, ceci va donc se représenter comme suit :
 
 ![Héritage de animaux](img/heritage_animal.png)
 
-La classe *animal* contient tout ce qui est commun à une poule et une vache. On pourrait rajouter que cette classe mère peut être *abstraite*, c'est à dire que l'on peut définir un ce qu'est un animal mais on ne peut pas créer un animal qui ne serait pas d'une espèce particulière (on ne peut l'*instancier*). On parle de polymorphisme quand on a une méthode de la classe mère qui est surchargée dans la classe fille. Dans le cas de nos vaches et nos poules on peut avoir une méthode pour `faire_du_bruit` qui va produire **meuh** dans le cas de la vache et **cot cot** dans le cas de la poule, et la méthode sera virtuelle pure pour l'animal en général.
+La classe *animal* contient tout ce qui est commun à une poule et une vache. On pourrait rajouter que cette classe mère peut être **abstraite**, c'est-à-dire que l'on peut définir ce qu'est un animal mais on ne peut pas créer un animal qui ne serait pas d'une espèce particulière (on ne peut pas l'*instancier*). On parle de **polymorphisme** quand on a une méthode de la classe mère qui est surchargée dans la classe fille. Dans le cas de nos vaches et nos poules on peut avoir une méthode pour `faire_du_bruit` qui va produire **meuh** dans le cas de la vache et **cot cot** dans le cas de la poule, et la méthode sera **virtuelle pure** pour l'animal en général.
 
 ### L'agrégation
 
-Une classe peut contenir une *collection* d'une autre classe (ou d'elle-même dans des cas un peu spéciaux), c'est-à-dire qu'une instance d'une classe *A* va contenir une ou plusieurs instances de la classe *B*. En UML on représente ceci comme suit :
+Une classe peut contenir une **collection** d'une autre classe (ou d'elle-même dans des cas un peu spéciaux), c'est-à-dire qu'une instance d'une classe *A* va contenir une ou plusieurs instances de la classe *B*. En UML on représente ceci comme suit :
 
 ![A est une agrégation de B](img/agregation.png)
 
-Si une instance de *A* est détruite alors la collection de *B* existe toujours. Il existe aussi un type d'agrégation appelé *composition* qui est un lien plus fort puisque dans ce cas les éléments de la collection seront détruits en même temps que la classe principale. Par simplification on utilise souvent principalement des agrégations.
+Si une instance de *A* est détruite alors la collection de *B* existe toujours. Il existe aussi un type d'agrégation appelé **composition** qui est un lien plus fort puisque dans ce cas les éléments de la collection seront détruits en même temps que la classe principale. Par simplification on utilise souvent principalement des agrégations.
 
 
 Dans le cas de notre ferme, des vaches sont contenus dans des prés, et le fermier possède des animaux.
@@ -61,6 +61,12 @@ Malgré tout avoir le diagramme UML du modèle est très important car on s'assu
 
 Les optimisations peuvent être de différents types, il y a bien entendu les optimisations en terme de performances (temps ou espace mémoire), mais on peut aussi penser à des optimisations en terme de confort de l'interface de programmation. En effet avoir une classe général pour les animaux permet de créer en *C++* un `std::vector<animal *>` ce qui permet de profiter du polymorphisme sur tous les animaux.
 
+Un exemple du diagramme UML de classes de l'implémentation pourrait être le suivant :
+
+![Diagramme UML de l'implémentation de la ferme](img/uml_implementation.png)
+
+On fait disparaître les classes *animal* et *champ* qui contenaient assez peu de choses. Par conséquent le fermier contient deux collections distinctes, une de poules et une de vaches. La classe *vache* contient le numéro de champ (ou une liste de numéro) auquel elle est affectée. Une critique que je ferais à cette implémentation est l'absence de la classe *animal*, le fermier peut posséder deux troupeaux distincts mais la classe *animal* permet de simplifier la manipulation des collections d'animaux.
+
 ## Étude du parc électronéclaire
 
 Revenons au sujet du stage. Je pense que dans un premier temps il est important que l'on discute pour établir le diagramme UML de la simulation d'un parc électronéclaire, sans se soucier de l'implémentation qui en est faite dans CLASS.
@@ -82,13 +88,14 @@ Dans l'étape suivante il s'agira d'améliorer le modèle de classes de CLASS. J
 Cette étape s'éloigne de l'optimisation d'algorithmes, du calcul GP/GPU, de la parallélisation etc. mais elle reste importante pour plusieurs raisons :
 * L'amélioration des performances d'un algorithmes passe aussi par le choix de la structure de données.
 * Il peut être plus simple de paralléliser certaines procédures en fonction les liens entre classes.
+* On peut diminuer le temps de développement si la structure est plus simple et claire.
 
-Dans cette étape il s'agira sûrement de faire du *refactoring* de code et créer des classes mères là où il y en a besoin (c'est souvent ça qui manque). Mais aussi clarifier certaines classes, peut-être remodeler certaines parties. Le travail a effectué dans cette étape dépend surtout des résultats des étapes précédentes, mais aussi de savoir s'il y a ou non la volonté de faire une refonte d'une partie de CLASS. Donc selon les besoins et la volonté de changement (je proposerai peut-être des changement qui sont mauvais et tu m'expliqueras la raison de l'implémentation actuelle) j'estime à environ *2 semaines* de travail.
+Dans cette étape il s'agira sûrement de faire du **refactoring** de code et créer des classes mères là où il y en a besoin (c'est souvent ça qui manque). Mais aussi clarifier certaines classes, peut-être remodeler certaines parties. Le travail a effectué dans cette étape dépend surtout des résultats des étapes précédentes, mais aussi de savoir s'il y a ou non la volonté de faire une refonte d'une partie de CLASS. Donc selon les besoins et la volonté de changement (je proposerai peut-être des changement qui sont mauvais et tu m'expliqueras la raison de l'implémentation actuelle) j'estime à environ *2 semaines* de travail.
 
 
 # Étude des algorithmes
 
-On entre dans le vif du sujet (après 4 à 5 semaines de travail). Le travail sur les algorithmes est un peu du cas par cas, donc dans un premier temps il va être nécessaire de faire du *profiling* du programme, c'est-à-dire mesurer le temps dans chaque fonction et le nombre de fois qu'elles sont appelées. On observe ainsi les *goulots d'étranglement* : les fonctions critiques qui font baisser les performances du programme. Cela permet de sélectionner les algorithmes sur lesquels il faut travailler en priorité. 
+On entre dans le vif du sujet (après 4 à 5 semaines de travail, soit juste après la formation sur le calcul GPU). Le travail sur les algorithmes est un peu du cas par cas, donc dans un premier temps il va être nécessaire de faire du **profiling** du programme, c'est-à-dire mesurer le temps dans chaque fonction et le nombre de fois qu'elles sont appelées. On observe ainsi les **goulots d'étranglement** : les fonctions critiques qui font baisser les performances du programme. Cela permet de sélectionner les algorithmes sur lesquels il faut travailler en priorité. 
 
 Une fois cette étape réalisée on effectue un choix des morceaux sur lesquels je vais devoir travailler. L'estimation de la charge de travail est relativement difficile car elle dépend du nombre d'algorithmes et du travail à faire dessus. Mais généralement il est plus simple de transformer le code en *pseudo-code* (écriture papier de l'algo), regarder son objectif, chercher différentes méthodes pour l'optimiser (suppressions de boucles, parallélisation) ou de vérifier dans la littérature si quelqu'un n'a pas déjà eu une problématique similaire, chercher une approche différente pour résoudre le problème, on peut même faire de la métaprogrammation, ou écrire un morceau en *FORTRAN* pour gagner en performance sur du calcul vectoriel.
 
@@ -97,11 +104,15 @@ Tout ça pour dire que je suis incapable d'indiquer un temps, même par algorith
 
 # Se passer de ROOT
 
+## Point de vue de l'informaticien
+
 Je pense qu'en tant qu'informaticien je ne reproche pas les mêmes choses à *ROOT* que toi. Moi il s'agit surtout de choix d'implémentation, de pratiques héritées du *FORTRAN*, d'une syntaxe proche de *Java* (UpperCamelCase, la notation des getters et setters, le tout pointeur mais sans delete), la non-utilisation de nombreux concepts de *C++* (templates, flux, surcharge des opérateurs, namespace), l'absence de connexion avec la STL (pourquoi recoder une string ?), l'absence de concepts de la programmation orientée objets (foncteurs, itérateurs).
 
-Je sais que de nombreuses choses que je reproche à ROOT sont dûs à sa genèse. À l'origine ROOT était un agrégat de fonctions et de classes développées en *C++* ou *FORTRAN* par des physiciens du CERN que René Brun a compilé (traduit du *FORTRAN* vers le *C++*), tout ça à une époque où la STL en était qu'à ses débuts, non stable, pas très complète et pas très performantes.
+Je sais que de nombreuses choses que je reproche à ROOT sont dûs à sa genèse. À l'origine ROOT était un agrégat de fonctions et de classes développées en *C++* ou *FORTRAN* par des physiciens du CERN que René Brun a compilé (traduit du *FORTRAN* vers le *C++* et normalisé les noms), tout ça à une époque où la STL en était qu'à ses débuts (1994), non stable, pas très complète et pas très performantes.
 
 Bjarne Stroustrup définit 3 grandes époques du *C++*, la période *C with classes*, la période *Java-like* (dans laquelle on est encore un peu) et la période où on essaie de faire du *C++* (qui commence avec *C++11*). Depuis le début du travail sur *C++11* beaucoup de personnes souhaitent écrire du *C++* différemment, c'est à dire pas comme du *C* ni comme du *Java* mais comme du *C++*. Cela implique une utilisation intensive de la STL, ou de code qui s'en rapproche en terme d'interface et de concepts.
+
+## Point de vue du physicien
 
 Après les raisons que tu sembles évoquer pour l'abandon de ROOT sont relativement différents. Il s'agira surtout d'évaluer ton besoin, voir si il y a vraiment besoin de recoder tout ou voir si une bibliothèque tierce ne fait pas déjà ça (si tu demandes de recoder un outil de minimisation, je serais capable de le faire mais ça risque d'être long), puis recoder si besoin ou en tout cas l'adapter à CLASS. De même ici, ça dépend de ce que tu souhaites faire.
 
