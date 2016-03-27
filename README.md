@@ -90,6 +90,7 @@ Une autre différence qui peut exister entre le modèle théorique et le modèle
 * S'assurer qu'il ne peut exister qu'une seule instance d'une classe (un unique fermier dans notre exemple).
 * Avoir une classe qui génère des instances d'une autre classe (la poule).
 * Devoir interfacer une bibliothèque tierce avec son code (un code de simulation de vache par exemple).
+
 Les solutions proposées demandent parfois la création de nouvelles classes abstraites simplifiant le problème.
 
 
