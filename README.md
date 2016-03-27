@@ -10,7 +10,18 @@ Ce présent document n'est qu'une esquisse de ce que je pense réalisable pendan
 
 # Étude de la modélisation
 
+* [UML](#uml)
+	* [L'héritage](#lheritage)
+	* [L'agrégation](#lagrégation)
+	* [Les autres connexions](#les-autres-connexions)
+	* [Différence avec l'implémentation](#différence-avec-limplementation)
+* [Étude du parc électronucléaire](#Étude-du-parc-électronucléaire)
+* [Étude de CLASS](#Étude-de-class)
+* [Amélioration](#améliorations)
+
 ## UML
+
+	> Il ne s'agit pas de faire un cours sur tout UML, ou juste sur les diagrammes de classes, mais plus d'une initiation qui a pour but d'apprendre à lire un diagramme de classes et éventuellement en écrire des petits.
 
 Avant de parler de code et de *CLASS* on va parler de modélisation. Dans le domaine de l'informatique on utilise souvent l'UML (ou une variante) qui est un langage graphique de modélisation, c'est-à-dire qu'il permet de représenter la modélisation d'un problème avec un diagramme.
 
