@@ -100,11 +100,11 @@ Une autre différence qui peut exister entre le modèle théorique et le modèle
 Les solutions proposées demandent parfois la création de nouvelles classes abstraites simplifiant le problème.
 
 
-## Étude du parc électronucélaire
+## Étude du parc électronucléaire
 
-Revenons au sujet du stage. Je pense que dans un premier temps il est important que l'on discute pour établir le diagramme UML de la simulation d'un parc électronucélaire, sans se soucier de l'implémentation qui en est faite dans CLASS.
+Revenons au sujet du stage. Je pense que dans un premier temps il est important que l'on discute pour établir le diagramme UML de la simulation d'un parc électronucléaire, sans se soucier de l'implémentation qui en est faite dans CLASS.
 
-Ceci me permettra de comprendre l'objectif du code, les classes de CLASS, leurs interactions et de proposer différentes optimisations globales (et pas de la simple optimisation d'algorithmes). Je pense qu'il serait trop ambicieux et contre-productif de vouloir tout ré-écrire. Par conséquent je devrais m'appuyer le plus possible sur l'existant et ne pas nécessairement vouloir tout reprendre dans la logique d'informaticien, je dois garder à l'esprit que ce code est pensé pour des physiciens.
+Ceci me permettra de comprendre l'objectif du code, les classes de CLASS, leurs interactions et de proposer différentes optimisations globales (et pas de la simple optimisation d'algorithmes). Je pense qu'il serait trop ambitieux et contre-productif de vouloir tout ré-écrire. Par conséquent je devrais m'appuyer le plus possible sur l'existant et ne pas nécessairement vouloir tout reprendre dans la logique d'informaticien, je dois garder à l'esprit que ce code est pensé pour des physiciens.
 
 Je n'ai pas la moindre connaissance de la physique des réacteurs, donc je ne sais pas exactement combien de temps cette étape peut prendre, mais normalement **une à deux semaines** peuvent suffire pour avoir une esquisse suffisamment complète pour continuer. Le diagramme s'affinera au fur et à mesure. Il s'agit d'avoir une vision d'ensemble, il n'est pas nécessaire dès le début de se préoccuper de petits points de détails, un modèle est quelque chose qui évolue au cours du temps.
 
