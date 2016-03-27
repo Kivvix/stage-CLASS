@@ -5,7 +5,7 @@ Ce présent document n'est qu'une esquisse de ce que je pense réalisable pendan
 * [Étude de la modélisation](#Étude-de-la-modélisation) (et une petite initiation à UML)
 * [Qualité de code et tests](#Qualité-de-code-et-tests)
 * [Étude des algorithmes](#Étude-des-algorithmes)
-* [Se passer de ROOT](#Se-passer-de-root)
+* [Se passer de ROOT](#se-passer-de-root)
 
 
 # Étude de la modélisation
