@@ -11,7 +11,7 @@ Ce présent document n'est qu'une esquisse de ce que je pense réalisable pendan
 # Étude de la modélisation
 
 * [UML](#uml)
-	* [L'héritage](#lheritage)
+	* [L'héritage](#lhéritage)
 	* [L'agrégation](#lagrégation)
 	* [Les autres connexions](#les-autres-connexions)
 	* [Différence avec l'implémentation](#différence-avec-limplementation)
