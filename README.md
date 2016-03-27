@@ -67,9 +67,16 @@ Un exemple du diagramme UML de classes de l'implémentation pourrait être le su
 
 On fait disparaître les classes *animal* et *champ* qui contenaient assez peu de choses. Par conséquent le fermier contient deux collections distinctes, une de poules et une de vaches. La classe *vache* contient le numéro de champ (ou une liste de numéro) auquel elle est affectée. Une critique que je ferais à cette implémentation est l'absence de la classe *animal*, le fermier peut posséder deux troupeaux distincts mais la classe *animal* permet de simplifier la manipulation des collections d'animaux.
 
-## Étude du parc électronéclaire
+Une autre différence qui peut exister entre le modèle théorique et le modèle de l'implémentation est le recours aux *Design patterns*. Très rapidement il s'agit de patrons de base pour résoudre certains problèmes :
+* S'assurer qu'il ne peut exister qu'une seule instance d'une classe (un unique fermier dans notre exemple).
+* Avoir une classe qui génère des instances d'une autre classe (la poule).
+* Devoir interfacer une bibliothèque tierce avec son code (un code de simulation de vache par exemple).
+Les solutions proposées demandent parfois la création de nouvelles classes abstraites simplifiant le problème.
 
-Revenons au sujet du stage. Je pense que dans un premier temps il est important que l'on discute pour établir le diagramme UML de la simulation d'un parc électronéclaire, sans se soucier de l'implémentation qui en est faite dans CLASS.
+
+## Étude du parc électronucélaire
+
+Revenons au sujet du stage. Je pense que dans un premier temps il est important que l'on discute pour établir le diagramme UML de la simulation d'un parc électronucélaire, sans se soucier de l'implémentation qui en est faite dans CLASS.
 
 Ceci me permettra de comprendre les classes de CLASS, les interactions et de proposer différentes optimisations globales (et pas de la simple optimisation d'algorithmes).
 
