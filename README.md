@@ -8,7 +8,7 @@ Ce présent document n'est qu'une esquisse de ce que je pense réalisable pendan
 * [Se passer de ROOT](#Se-passer-de-ROOT)
 
 
-# Étude-de-la-modélisation
+# Étude de la modélisation
 
 ## UML
 
@@ -132,7 +132,7 @@ Tout ça pour dire que je suis incapable d'indiquer un temps, même par algorith
 
 
 
-# Se passer de *ROOT*
+# Se passer de ROOT
 
 ## Point de vue de l'informaticien
 
