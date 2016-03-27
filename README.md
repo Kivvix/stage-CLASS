@@ -2,7 +2,10 @@ Ce présent document n'est qu'une esquisse de ce que je pense réalisable pendan
 
 # Sommaire
 
-* [Étude de la modélisation](#Étude-de-la-modélisation)
+* [Étude de la modélisation](#Étude-de-la-modélisation) (et une petite initiation à UML)
+* [Qualité de code et tests](#Qualité-de-code-et-tests)
+* [Étude des algorithmes](#Étude-des-algorithmes)
+* [Se passer de ROOT](#Se-passer-de-ROOT)
 
 
 # Étude-de-la-modélisation
