@@ -43,6 +43,12 @@ Dans une ferme on a différents types d'animaux, des vaches et des poules, ceci 
 
 La classe *animal* contient tout ce qui est commun à une poule et une vache. On pourrait rajouter que cette classe mère peut être **abstraite**, c'est-à-dire que l'on peut définir ce qu'est un animal mais on ne peut pas créer un animal qui ne serait pas d'une espèce particulière (on ne peut pas l'*instancier*). On parle de **polymorphisme** quand on a une méthode de la classe mère qui est surchargée dans la classe fille. Dans le cas de nos vaches et nos poules on peut avoir une méthode pour `faire_du_bruit` qui va produire **meuh** dans le cas de la vache et **cot cot** dans le cas de la poule, et la méthode sera **virtuelle pure** pour l'animal en général.
 
+L'héritage peut se faire sur plusieurs étages et une classe peut hériter de plusieurs classes. Par exemple l'avion, le bateau et l'hydravion sont des véhicules (*véhicule* est la classe mère). Un hydravion a des propriétés communes avec l'avion et le bateau, il peut donc hériter de ces deux classes. En restant dans le cadre des animaux, un ornithorynque a des propriétés communes avec le canard (le bec) et le castor (la queue). C'est un peu tordu comme exemple, mais je dois rester dans l'exemple de ma ferme.
+
+![Héritage multiple](img/heritage_multiple.png)
+
+Ce type d'héritage entre *animal*, *canard*, *castor* et *ornithorynque* est appelé **héritage en diamant**. Il est impossible dans certains langages d'effectuer ceci (par exemple en *Java*) mais l'est dans d'autres (par exemple *C++*). Une source de problèmes est que dans la classe *ornithorynque* les propriétés de *animal* sont dupliquées car héritées une première fois de *canard* et une seconde fois de *castor*. Je ne rentrerai pas dans les détails, c'est plus une indication que cela existe.
+
 ### L'agrégation
 
 Une classe peut contenir un élément ou une **collection** d'une autre classe (ou d'elle-même dans des cas un peu spéciaux), c'est-à-dire qu'une instance d'une classe *A* va contenir une ou plusieurs instances de la classe *B*. En UML on représente ceci comme suit :
@@ -98,13 +104,13 @@ Les solutions proposées demandent parfois la création de nouvelles classes abs
 
 Revenons au sujet du stage. Je pense que dans un premier temps il est important que l'on discute pour établir le diagramme UML de la simulation d'un parc électronucélaire, sans se soucier de l'implémentation qui en est faite dans CLASS.
 
-Ceci me permettra de comprendre les classes de CLASS, les interactions et de proposer différentes optimisations globales (et pas de la simple optimisation d'algorithmes).
+Ceci me permettra de comprendre l'objectif du code, les classes de CLASS, leurs interactions et de proposer différentes optimisations globales (et pas de la simple optimisation d'algorithmes). Je pense qu'il serait trop ambicieux et contre-productif de vouloir tout ré-écrire. Par conséquent je devrais m'appuyer le plus possible sur l'existant et ne pas nécessairement vouloir tout reprendre dans la logique d'informaticien, je dois garder à l'esprit que ce code est pensé pour des physiciens.
 
-Je n'ai pas la moindre connaissance de la physique des réacteurs, donc je ne sais pas exactement combien de temps cette étape peut prendre, mais normalement **une à deux semaines** peuvent suffire pour avoir une esquisse suffisamment complète pour continuer. Le diagramme s'affinera au fur et à mesure.
+Je n'ai pas la moindre connaissance de la physique des réacteurs, donc je ne sais pas exactement combien de temps cette étape peut prendre, mais normalement **une à deux semaines** peuvent suffire pour avoir une esquisse suffisamment complète pour continuer. Le diagramme s'affinera au fur et à mesure. Il s'agit d'avoir une vision d'ensemble, il n'est pas nécessaire dès le début de se préoccuper de petits points de détails, un modèle est quelque chose qui évolue au cours du temps.
 
 ## Étude de CLASS
 
-Après avoir étudier le modèle théorique, il faut s'intéresser à l'implémentation qui en a été faite. Baptiste M. m'avait indiqué que par manque de temps des classes mères (comme *animal*) n'avaient pu être codées. Cela entraîne de la duplication de code (donc généralement la duplication de bugs, ou l'oublie d'une correction sur deux) et complexifie inutilement le code.
+Après avoir étudier le modèle théorique, il faut s'intéresser à l'implémentation qui en a été faite. Baptiste M. m'avait indiqué que par manque de temps des classes mères (comme *animal* dans l'exemple précédent) n'avaient pu être codées. Cela entraîne de la duplication de code (donc généralement la duplication de bugs, ou l'oublie d'une correction sur deux) et complexifie inutilement le code.
 
 Il s'agit normalement de lire les déclarations de classes `class B : public A` pour avoir l'héritage, et de regarder la liste des attributs pour avoir l'agrégation. Pour les autres liaisons il faut regarder la listes des méthodes et fonctions mettant en jeu les deux classes considérées. Ça c'est la théorie, dans la pratique j'ai fouillé trop de fois dans le code de ROOT, j'ai pu voir le code de Benoît quand il codait salement, j'ai vu des esquisses du code de CLASS, et ce n'est pas toujours si simple. Seule la structure général m'intéressera dans un premier temps (pas besoin de regarder dès le début la lecture du fichier de config, je pense qu'il faut surtout s'intéresser au coeur de calculs), donc en **une semaine** j'espère que ça sera fait.
 
