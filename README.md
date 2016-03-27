@@ -14,7 +14,7 @@ Ce présent document n'est qu'une esquisse de ce que je pense réalisable pendan
 	* [L'héritage](#lhéritage)
 	* [L'agrégation](#lagrégation)
 	* [Les autres connexions](#les-autres-connexions)
-	* [Différence avec l'implémentation](#différence-avec-limplementation)
+	* [Différence avec l'implémentation](#différence-avec-limplémentation)
 * [Étude du parc électronucléaire](#Étude-du-parc-électronucléaire)
 * [Étude de CLASS](#Étude-de-class)
 * [Amélioration](#améliorations)
