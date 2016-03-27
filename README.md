@@ -92,6 +92,15 @@ Cette étape s'éloigne de l'optimisation d'algorithmes, du calcul GP/GPU, de la
 
 Dans cette étape il s'agira sûrement de faire du **refactoring** de code et créer des classes mères là où il y en a besoin (c'est souvent ça qui manque). Mais aussi clarifier certaines classes, peut-être remodeler certaines parties. Le travail a effectué dans cette étape dépend surtout des résultats des étapes précédentes, mais aussi de savoir s'il y a ou non la volonté de faire une refonte d'une partie de CLASS. Donc selon les besoins et la volonté de changement (je proposerai peut-être des changement qui sont mauvais et tu m'expliqueras la raison de l'implémentation actuelle) j'estime à environ *2 semaines* de travail.
 
+# Qualité de code et tests
+
+Je pense qu'il peut être intéressant d'utiliser mon expérience et ma formation d'informaticien pour aider à améliorer la qualité du code. Une des premières choses qu'il est possible de mettre en place sans trop boulverser l'ordre des choses, est le **développement orienté tests**.
+
+Avant (ou après pour le code déjà écrit) de développer une fonction ou une méthode on sait ce qu'elle doit retourner dans un certain nombre de cas. Le principe du **test unitaire** est d'écrire ces cas et de tester après son implémentation si la fonction (ou méthode) respecte les tests. Par exemple si on écrit une classe *A* contenant un tableau correspondant à un signal, une des méthodes de la classe *A* est de calculer l'intégral de ce signal et une autre le maximum. Dans notre test on générera un signal basique dont on connaît le maximum et l'intégral, et on testera de façon automatique si les résultats de ces deux méthodes sont ceux espérés. On peut éventuellement tester avec différents types de signaux dont certains pouvant poser problème et on testera si la classe *A* renvoie le bon code d'erreur si une erreur doit se produire.
+
+Souvent on se fait une petite fonction `main.cpp` qui contient un ou deux tests, on vérifie que ça tourne et c'est bon. Écrire systématiquement des tests unitaires permet de centraliser pour tous les développeurs les tests, ainsi si quelqu'un touche au code d'une fonction (correction de bug ou optimisation) le test est déjà écrit et il vérifie en même temps qu'il n'a pas cassé autre chose (ce qui arrive dans des programmes où trop de choses sont imbriquées les unes dans les autres). De plus de nombreux petits bugs qui ont des répercussions beaucoup plus loin sont évités (bugs parfois très chiants à repérer).
+
+
 
 # Étude des algorithmes
 
