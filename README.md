@@ -1,6 +1,11 @@
 Ce présent document n'est qu'une esquisse de ce que je pense réalisable pendant mon stage. J'admets n'avoir aucune connaissances sur *CLASS* ainsi que vos contraintes de développement, par conséquent il y a sans doute des obstacles que je n'ai pas pris en compte dans mon analyse.
 
-# Étude de la modélisation
+# Sommaire
+
+* [Étude de la modélisation](#Étude-de-la-modélisation)
+
+
+# Étude-de-la-modélisation
 
 ## UML
 
