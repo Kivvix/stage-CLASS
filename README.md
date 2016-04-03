@@ -6,6 +6,7 @@ Ce présent document n'est qu'une esquisse de ce que je pense réalisable pendan
 * [Qualité de code et tests](#qualité-de-code-et-tests)
 * [Étude des algorithmes](#Étude-des-algorithmes)
 * [Se passer de ROOT](#se-passer-de-root)
+* [Test en fonction du compilateur](#test-en-fonction-du-compilateur)
 
 
 # Étude de la modélisation
@@ -163,5 +164,17 @@ Bjarne Stroustrup définit 3 grandes époques du *C++*, la période *C with clas
 ## Point de vue du physicien
 
 Après les raisons que tu sembles évoquer pour l'abandon de *ROOT* sont relativement différentes. Il s'agira surtout d'évaluer ton besoin, voir si il y a vraiment besoin de recoder tout ou voir si une bibliothèque tierce ne fait pas déjà ça (si tu demandes de recoder un outil de minimisation, je serais capable de le faire mais ça risque d'être long), puis recoder si besoin ou en tout cas l'adapter à CLASS. De même ici, ça dépend de ce que tu souhaites faire.
+
+# Test en fonction du compilateur
+
+Je sais que le "client" (en informatique on utilise souvent le mot client, dans ce contexte ça désigne juste un utilisateur de programme) ne maîtrise pas l'environnement de *prod*, donc entre autre le compilateur, mais c'est un test que j'aimerais effectuer pour conseiller d'utiliser tel ou tel compilateur.
+
+La raison de ce test est que chaque compilateur utilise sa bibliothèque de la STL, effectue des optimisation de code différentes, par conséquent les performances sont différentes. Quand je dis "chaque compilateur" c'est en théorie aussi chaque version d'un même compilateur, dans la pratique d'une version à l'autre d'un même compilateur il n'y a pas de grands changements et c'est plus l'option `std=c++11` qui va apporter des changements significatifs.
+
+Les différents compilateurs à tester sont :
+* `g++` : compilateur basé sur `gcc`, sous licence libre, généralement le plus connu et le plus utilisé.
+* `llvm` : compilateur sur lequel est basé `clang` (mais ce dernier ne fonctionne que sous MacOS), sous licence libre.
+* `icc` : compilateur d'Intel, sous licence propriétaire (et payant), réputé pour être le plus performant car effectuant nativement des optimisations de parallélisation du code, il est souvent présent sur des fermes de calculs.
+* `cl` : compilateur de Visual Studio de Microsoft, sous licence propriétaire (il existe apparemment une version gratuite), fonctionne que sous MS-Windows, relativement pointilleux sur des détails de code (beaucoup moins permissif que `gcc`), parfois un peu éloigné des standards, mais il semblerait qu'il soit devenu bon dans ses dernières versions.
 
 
