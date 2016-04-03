@@ -7,6 +7,7 @@ Ce présent document n'est qu'une esquisse de ce que je pense réalisable pendan
 * [Étude des algorithmes](#Étude-des-algorithmes)
 * [Se passer de ROOT](#se-passer-de-root)
 * [Test en fonction du compilateur](#test-en-fonction-du-compilateur)
+* [Interface graphique](#interface-graphique)
 
 
 # Étude de la modélisation
@@ -177,4 +178,10 @@ Les différents compilateurs à tester sont :
 * `icc` : compilateur d'Intel, sous licence propriétaire (et payant), réputé pour être le plus performant car effectuant nativement des optimisations de parallélisation du code, il est souvent présent sur des fermes de calculs.
 * `cl` : compilateur de Visual Studio de Microsoft, sous licence propriétaire (il existe apparemment une version gratuite), fonctionne que sous MS-Windows, relativement pointilleux sur des détails de code (beaucoup moins permissif que `gcc`), parfois un peu éloigné des standards, mais il semblerait qu'il soit devenu bon dans ses dernières versions.
 
+
+# Interface graphique
+
+Pour l'interface graphique, si j'ai bien compris il s'agit surtout d'effectuer une interface aidant à la génération du fichier de configuration, puis au lancement de *CLASS* avec ce fichier en entré. Je suis convaincu qu'il est beaucoup plus simple d'effectuer une **interface Web** qu'avec un modèle **client lourd** (*Qt*, *GTK+*), en effet on supprime beaucoup de dépendances et d'installations de bibliothèques tierces, on se contente d'un navigateur. C'est côté serveur où cela demande plus de travail puisqu'il faut intégrer un serveur Web, celui-ci n'a pas besoin d'être très gros (pas besoin d'Apache, un truc plus petit peut suffire, certains se sont même mis à écrire des serveurs Web en *bash* en une seule ligne) mais il faut ouvrir au moins un port (pas nécessairement le `80`).
+
+Plus pour tester différentes techniques, j'ai fait une [page](http://kiwi.legtux.org/class/) présentant ce qui serait possible de faire comme GUI (j'ai développé ça en une nuit, donc c'est pas extra, mais l'idée y est).
 
