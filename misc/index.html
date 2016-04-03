@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Config test</title>
+	<meta charset="utf8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
+
+	<style>
+body { padding-top: 90px; }
+#graph { height: 400px; min-width: 310px }
+button { max-height : 100%; }
+	</style>
+</head>
+
+<body ng-app >
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">CLASS</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<form class="navbar-form navbar-right">
+				<div class="form-group">
+					<input type="email" placeholder="Email" class="form-control">
+				</div>
+				<div class="form-group">
+					<input type="password" placeholder="Password" class="form-control">
+				</div>
+				<button type="submit" class="btn btn-success" data-toggle="popover" title="Connexion" data-content="Éventuellement on peut limiter l'accès à l'interface" data-placement="bottom" >Sign in</button>
+			</form>
+		</div><!--/.navbar-collapse -->
+	</div>
+</nav>
+
+<div role="main" class="container" >
+
+	<div class="row" >
+
+	<div class="col-sm-6" >
+		<section class="panel panel-primary" >
+			<h3 class="panel-heading panel-title" >Groupe 1</h3>
+			<p class="panel-body" >Un petit exemple avec des chaînes de caractères.</p>
+
+			<div class="panel-footer input-group" >
+				<span class="input-group-addon" id="basic-addon1">Variable 1 :</span>
+				<input type="text" class="form-control" placeholder="var1" ng-model="var1" />
+			</div>
+			
+			<div class="panel-footer input-group" >
+				<span class="input-group-addon" id="basic-addon1">Variable 2 :</span>
+				<input type="text" class="form-control" placeholder="var2" ng-model="var2" />
+			</div>
+		</section>
+	</div>
+
+	<div class="col-sm-6" >
+		<section class="panel panel-primary" >
+			<h3 class="panel-heading panel-title" >Groupe 2</h3>
+			<p class="panel-body" >Un petit exemple avec des nombres.</p>
+
+			<div class="panel-footer input-group" >
+				<span class="input-group-addon" id="basic-addon1">Variable 4 :</span>
+				<input type="number" class="form-control" min="-2" max="5" ng-model="var4" />
+			</div>
+
+			<div class="panel-footer input-group" >
+				<span class="input-group-addon" id="basic-addon1">Variable 5 :</span>
+				<input type="range" class="form-control" min="-1" max="1" step="0.05" ng-model="var5" />
+				<span class="input-group-addon">{{ var5 | number:2 }}</span>
+			</div>
+		</section>
+	</div>
+	
+	</div>
+
+	<div class="row" >
+
+	<div class="col-sm-6" >
+		<section class="panel panel-primary" >
+			<h3 class="panel-heading panel-title" >Groupe 3</h3>
+			<p class="panel-body" >Un petit exemple avec des checkboxes.</p>
+
+			<div class="panel-footer checkbox">
+				<label>
+						<input type="checkbox" ng-model="var7"> Variable 7
+				</label>
+			</div>
+
+			<div class="panel-footer input-group">
+				<span class="input-group-addon">
+					<input type="checkbox" ng-model="var8" >
+				</span>
+				<input type="text" class="form-control" placeholder="Indiquer un truc" ng-model="var9" >
+			</div>
+		</section>
+	</div>
+
+	<div class="col-sm-6" >
+		<section class="panel panel-primary" >
+			<h3 class="panel-heading panel-title" >Groupe 4</h3>
+			<p class="panel-body" >Un petit exemple avec des radio buttons.</p>
+
+			<div class="panel-footer checkbox">
+				<label>
+						<input type="checkbox" ng-model="checked"> Options avancées
+				</label>
+				<div ng-show="checked" class="animate-if radio" >
+					<label class="radio-inline" >
+						<input type="radio" value="option1" ng-model="option" name="optionsRadios" id="optionsRadios1" ng-checked="checked" /> Option 1
+					</label>
+					<label class="radio-inline" >
+						<input type="radio" value="option2" ng-model="option" name="optionsRadios" id="optionsRadios2" /> Option 2
+					</label>
+					<label class="radio-inline" >
+						<input type="radio" value="option3" ng-model="option" name="optionsRadios" id="optionsRadios3" /> Option 3
+					</label>
+					<div class="checkbox" >
+						<label class="checkbox-inline" >
+							<input type="checkbox" ng-model="master" /> Machin
+						</label>
+						<label class="checkbox-inline" >
+							<input type="checkbox" ng-model="slave" ng-disabled="!master" /> Truc
+						</label>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	
+	</div>
+	
+
+	<section class="panel panel-primary">
+		<div class="panel-heading" >Petit bonus</div>
+		<p class="panel-body" ng-init="users=['Fanny','Baptiste','Nicolas']" >
+			<span class="form-inline" >Avec qui boire une bière :
+				<select class="form-control" ng-model="personne1" >
+					<option ng-repeat="user in users" value="{{user}}">{{ user }}</option>
+				</select>
+			</span>
+			<span class="form-inline" > et :
+				<select class="form-control" ng-model="personne2" >
+					<option ng-repeat="user in users | filter:'!'+personne1" value="{{user}}">{{ user }}</option>
+				</select>
+			</span>
+			<span class="form-inline" > et :
+				<select class="form-control" ng-model="personne3" >
+					<option ng-repeat="user in users | filter:'!'+personne1 | filter:'!'+personne2" value="{{user}}">{{ user }}</option>
+				</select>
+			</span>
+		</p>
+	</section>
+
+	<section class="list-group" >
+		<h3 class="list-group-item active" >
+			<button class="btn badge" data-clipboard-target="#foo" >
+				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+			</button>
+				Fichier de configuration
+		</h3>
+		<div class="list-group-item" >
+	<code id="foo" >
+		var1 : {{ var1 }}<br />
+		var2 : {{ var2 }}<br />
+		var3 : {{ var1 + var2 }}<br />
+		var4 : {{ var4 }}<br />
+		var5 : {{ var5 }}<br />
+		var6 : {{ var4*1.1+var5*1.3 | number:3 }}<br />
+		var7 : {{ var7 }}<br />
+		var8 : {{ var8 }}<br />
+		<span ng-show="var8" >var9 : {{ var9 }}<br /></span>
+		<span ng-show="checked" >
+		option : {{ option }}<br />
+		machin : {{ master }}<br />
+			<span ng-show="master" >
+		truc : {{ slave }}<br />
+			</span>
+		</span>
+		<br /><br />
+		Aller boire une bière avec : {{ personne1 }} et {{ personne2 }} et {{ personne3 }}<br />
+	</code>
+		</div>
+	</section>
+
+	<section class="panel panel-primary" >
+		<h3 class="panel-heading panel-title" >Graphique</h3>
+
+		<p class="panel-body" >
+			On peut aussi faire des sorties graphiques. Il est même possible de lire un <samp>TH1D</samp> de ROOT (avec <a href="https://root.cern.ch/js/3.0/index.htm?file=../files/hsimple.root&item=hpx;1" >JSROOT</a>). Ici il s'agit d'un exemple repris tel quel de la documentation de <em>Highcharts</em> et c'est plus une illustration de ce qui est possible.
+		</p>
+		<div class="panel-footer" id="graph" ></div>
+	</section>
+
+	<ul id="r-dallier" class="list-group" >
+		<li class="list-group-item active" ><span class="label label-success">HAL</span> <span id="n-publi" class="badge" > </span> Publications de <strong id="tutor" ></strong></li>
+	</ul>
+
+</div>	
+
+<!-- [JS] Angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js" ></script>
+
+
+<!-- [JS] jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- [JS] Bootstrap -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script>
+	$(function () {
+	  $('[data-toggle="popover"]').popover()
+	});
+	</script>
+
+<!-- [JS] Clipboard -->
+	<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.8/clipboard.min.js"></script>
+
+<!--[JS] Highcharts -->
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script>
+/* ------------------------------------------------------------------ *
+ * Graph                                                              *
+ * ------------------------------------------------------------------ */
+
+//jQuery.noConflict();
+
+var example = 'line-basic', 
+theme = 'default';
+
+//(function($){ // encapsulate jQuery
+	$(function () {
+    $('#graph').highcharts({
+        title: {
+            text: 'Monthly Average Temperature',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: WorldClimate.com',
+            x: -20
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: 'Temperature (°C)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '°C'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Tokyo',
+            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+        }, {
+            name: 'New York',
+            data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+        }, {
+            name: 'Berlin',
+            data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
+        }, {
+            name: 'London',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+        }]
+    });
+});
+//})(jQuery);
+	</script>
+
+	<script>
+var prenom = "N.";
+var nom    = "Thiollière"
+$('#tutor').append(prenom + " " + nom);
+$.getJSON("http://api.archives-ouvertes.fr/search/?q=%28"+prenom+"%20"+nom+"%29&fl=halId_s,authFullName_s,title_s,fileMain_s,abstract_s&wt=json", function(data) {
+
+	var r = data["response"];
+	$('#n-publi').append(r["numFound"]);
+	$.map( r["docs"], function( key ) {
+		$('#r-dallier').append( "<li class=\"list-group-item\" ><a href=\"" + key["fileMain_s"] + "\" >" + key["halId_s"] + "</a><br />" + key["authFullName_s"] + "<br /><button class=\"btn btn-lg btn-link pub-title\" data-content=\"" + key["abstract_s"] + "\" title=\"\" data-toggle=\"popover\" data-trigger=\"focus\" data-placement=\"bottom\" type=\"button\" data-original-title=\"Abstract\" >" + key["title_s"] + "</button></li>" );
+	});
+	$('[data-toggle="popover"]').popover();
+});
+	</script>
+	<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+
+</html>
