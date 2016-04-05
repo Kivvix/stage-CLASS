@@ -3,7 +3,7 @@
 
 <head>
 	<title>Config test</title>
-	<meta charset="utf8" />
+	<meta charset="utf-8" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!-- Latest compiled and minified CSS -->
@@ -19,7 +19,7 @@ button { max-height : 100%; }
 	</style>
 </head>
 
-<body ng-app >
+<body data-ng-app >
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
@@ -56,13 +56,13 @@ button { max-height : 100%; }
 			<p class="panel-body" >Un petit exemple avec des chaînes de caractères.</p>
 
 			<div class="panel-footer input-group" >
-				<span class="input-group-addon" id="basic-addon1">Variable 1 :</span>
-				<input type="text" class="form-control" placeholder="var1" ng-model="var1" />
+				<span class="input-group-addon" >Variable 1 :</span>
+				<input type="text" class="form-control" placeholder="var1" data-ng-model="var1" />
 			</div>
 			
 			<div class="panel-footer input-group" >
-				<span class="input-group-addon" id="basic-addon1">Variable 2 :</span>
-				<input type="text" class="form-control" placeholder="var2" ng-model="var2" />
+				<span class="input-group-addon" >Variable 2 :</span>
+				<input type="text" class="form-control" placeholder="var2" data-ng-model="var2" />
 			</div>
 		</section>
 	</div>
@@ -73,13 +73,13 @@ button { max-height : 100%; }
 			<p class="panel-body" >Un petit exemple avec des nombres.</p>
 
 			<div class="panel-footer input-group" >
-				<span class="input-group-addon" id="basic-addon1">Variable 4 :</span>
-				<input type="number" class="form-control" min="-2" max="5" ng-model="var4" />
+				<span class="input-group-addon" >Variable 4 :</span>
+				<input type="number" class="form-control" min="-2" max="5" data-ng-model="var4" />
 			</div>
 
 			<div class="panel-footer input-group" >
-				<span class="input-group-addon" id="basic-addon1">Variable 5 :</span>
-				<input type="range" class="form-control" min="-1" max="1" step="0.05" ng-model="var5" />
+				<span class="input-group-addon" >Variable 5 :</span>
+				<input type="range" class="form-control" min="-1" max="1" step="0.05" data-ng-model="var5" />
 				<span class="input-group-addon">{{ var5 | number:2 }}</span>
 			</div>
 		</section>
@@ -96,15 +96,15 @@ button { max-height : 100%; }
 
 			<div class="panel-footer checkbox">
 				<label>
-						<input type="checkbox" ng-model="var7"> Variable 7
+						<input type="checkbox" data-ng-model="var7" /> Variable 7
 				</label>
 			</div>
 
 			<div class="panel-footer input-group">
 				<span class="input-group-addon">
-					<input type="checkbox" ng-model="var8" >
+					<input type="checkbox" data-ng-model="var8" />
 				</span>
-				<input type="text" class="form-control" placeholder="Indiquer un truc" ng-model="var9" >
+				<input type="text" class="form-control" placeholder="Indiquer un truc" data-ng-model="var9" />
 			</div>
 		</section>
 	</div>
@@ -116,24 +116,24 @@ button { max-height : 100%; }
 
 			<div class="panel-footer checkbox">
 				<label>
-						<input type="checkbox" ng-model="checked"> Options avancées
+						<input type="checkbox" data-ng-model="checked" /> Options avancées
 				</label>
-				<div ng-show="checked" class="animate-if radio" >
+				<div data-ng-show="checked" class="animate-if radio" >
 					<label class="radio-inline" >
-						<input type="radio" value="option1" ng-model="option" name="optionsRadios" id="optionsRadios1" ng-checked="checked" /> Option 1
+						<input type="radio" value="option1" data-ng-model="option" name="optionsRadios" id="optionsRadios1" data-ng-checked="checked" /> Option 1
 					</label>
 					<label class="radio-inline" >
-						<input type="radio" value="option2" ng-model="option" name="optionsRadios" id="optionsRadios2" /> Option 2
+						<input type="radio" value="option2" data-ng-model="option" name="optionsRadios" id="optionsRadios2" /> Option 2
 					</label>
 					<label class="radio-inline" >
-						<input type="radio" value="option3" ng-model="option" name="optionsRadios" id="optionsRadios3" /> Option 3
+						<input type="radio" value="option3" data-ng-model="option" name="optionsRadios" id="optionsRadios3" /> Option 3
 					</label>
 					<div class="checkbox" >
 						<label class="checkbox-inline" >
-							<input type="checkbox" ng-model="master" /> Machin
+							<input type="checkbox" data-ng-model="master" /> Machin
 						</label>
 						<label class="checkbox-inline" >
-							<input type="checkbox" ng-model="slave" ng-disabled="!master" /> Truc
+							<input type="checkbox" data-ng-model="slave" data-ng-disabled="!master" /> Truc
 						</label>
 					</div>
 				</div>
@@ -144,22 +144,22 @@ button { max-height : 100%; }
 	</div>
 	
 
-	<section class="panel panel-primary">
-		<div class="panel-heading" >Petit bonus</div>
-		<p class="panel-body" ng-init="users=['Fanny','Baptiste','Nicolas']" >
+	<section class="panel panel-primary" >		
+		<h3 class="panel-heading panel-title" >Petit bonus</h3>
+		<p class="panel-body" data-ng-init="users=['Fanny','Baptiste','Nicolas']" >
 			<span class="form-inline" >Avec qui boire une bière :
-				<select class="form-control" ng-model="personne1" >
-					<option ng-repeat="user in users" value="{{user}}">{{ user }}</option>
+				<select class="form-control" data-ng-model="personne1" >
+					<option data-ng-repeat="user in users" value="{{user}}">{{ user }}</option>
 				</select>
 			</span>
 			<span class="form-inline" > et :
-				<select class="form-control" ng-model="personne2" >
-					<option ng-repeat="user in users | filter:'!'+personne1" value="{{user}}">{{ user }}</option>
+				<select class="form-control" data-ng-model="personne2" >
+					<option data-ng-repeat="user in users | filter:'!'+personne1" value="{{user}}">{{ user }}</option>
 				</select>
 			</span>
 			<span class="form-inline" > et :
-				<select class="form-control" ng-model="personne3" >
-					<option ng-repeat="user in users | filter:'!'+personne1 | filter:'!'+personne2" value="{{user}}">{{ user }}</option>
+				<select class="form-control" data-ng-model="personne3" >
+					<option data-ng-repeat="user in users | filter:'!'+personne1 | filter:'!'+personne2" value="{{user}}">{{ user }}</option>
 				</select>
 			</span>
 		</p>
@@ -182,11 +182,11 @@ button { max-height : 100%; }
 		var6 : {{ var4*1.1+var5*1.3 | number:3 }}<br />
 		var7 : {{ var7 }}<br />
 		var8 : {{ var8 }}<br />
-		<span ng-show="var8" >var9 : {{ var9 }}<br /></span>
-		<span ng-show="checked" >
+		<span data-ng-show="var8" >var9 : {{ var9 }}<br /></span>
+		<span data-ng-show="checked" >
 		option : {{ option }}<br />
 		machin : {{ master }}<br />
-			<span ng-show="master" >
+			<span data-ng-show="master" >
 		truc : {{ slave }}<br />
 			</span>
 		</span>
@@ -205,7 +205,7 @@ button { max-height : 100%; }
 		<div class="panel-footer" id="graph" ></div>
 	</section>
 
-	<ul id="r-dallier" class="list-group" >
+	<ul id="publi" class="list-group" >
 		<li class="list-group-item active" ><span class="label label-success">HAL</span> <span id="n-publi" class="badge" > </span> Publications de <strong id="tutor" ></strong></li>
 	</ul>
 
@@ -295,15 +295,14 @@ theme = 'default';
 	</script>
 
 	<script>
-var prenom = "N.";
-var nom    = "Thiollière"
-$('#tutor').append(prenom + " " + nom);
-$.getJSON("http://api.archives-ouvertes.fr/search/?q=%28"+prenom+"%20"+nom+"%29&fl=halId_s,authFullName_s,title_s,fileMain_s,abstract_s&wt=json", function(data) {
+var name = "N. Thiollière";
+$('#tutor').append(name);
+$.getJSON("http://api.archives-ouvertes.fr/search/?q=%28"+name+"%29&fl=halId_s,authFullName_s,title_s,fileMain_s,abstract_s&wt=json", function(data) {
 
 	var r = data["response"];
 	$('#n-publi').append(r["numFound"]);
 	$.map( r["docs"], function( key ) {
-		$('#r-dallier').append( "<li class=\"list-group-item\" ><a href=\"" + key["fileMain_s"] + "\" >" + key["halId_s"] + "</a><br />" + key["authFullName_s"] + "<br /><button class=\"btn btn-lg btn-link pub-title\" data-content=\"" + key["abstract_s"] + "\" title=\"\" data-toggle=\"popover\" data-trigger=\"focus\" data-placement=\"bottom\" type=\"button\" data-original-title=\"Abstract\" >" + key["title_s"] + "</button></li>" );
+		$('#publi').append( "<li class=\"list-group-item\" ><a href=\"" + key["fileMain_s"] + "\" >" + key["halId_s"] + "</a><br />" + key["authFullName_s"] + "<br /><button class=\"btn btn-lg btn-link pub-title\" data-content=\"" + key["abstract_s"] + "\" title=\"\" data-toggle=\"popover\" data-trigger=\"focus\" data-placement=\"bottom\" type=\"button\" data-original-title=\"Abstract\" >" + key["title_s"] + "</button></li>" );
 	});
 	$('[data-toggle="popover"]').popover();
 });
