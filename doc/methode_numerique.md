@@ -6,11 +6,11 @@ Un des gros morceaux à optimiser dans *CLASS* est la résolution du *burnup*. I
 
 On sait que la solution exacte d'un tel système est la suivante :
 
-![\vec{n}(t) = \text{e}^{At}](http://www.sciweavers.org/tex2img.php?eq=%5Cvec%7Bn%7D%28t%29%20%3D%20%5Ctext%7Be%7D%5E%7BAt%7D&bc=Transparent&fc=Black&im=png&fs=18&ff=mathdesign&edit=0)
+![\vec{n}(t) = \text{e}^{At}](http://www.sciweavers.org/tex2img.php?eq=\vec{n}%28t%29%20%3D%20\text{e}^{At}&bc=Transparent&fc=Black&fs=18&ff=mathdesign&edit=0&im=png)
 
 Le problème est le calcul de l'exponentielle matricielle qui formellement s'écrit :
 
-![\text{e}^A = \sum_{k \in \mathbb{N}} \frac{A^k}{k!}](http://www.sciweavers.org/tex2img.php?eq=%5Ctext%7Be%7D%5EA%20%3D%20%5Csum_%7Bk%20%5Cin%20%5Cmathbb%7BN%7D%7D%20%5Cfrac%7BA%5Ek%7D%7Bk%21%7D&bc=Transparent&fc=Black&im=png&fs=18&ff=mathdesign&edit=0)
+![\text{e}^A = \sum_{k \in \mathbb{N}} \frac{A^k}{k!}](http://www.sciweavers.org/tex2img.php?eq=\text{e}^A%20%3D%20\sum_{k%20\in%20\mathbb{N}}%20\frac{A^k}{k!}&bc=Transparent&fc=Black&fs=18&ff=mathdesign&edit=0&im=png)
 
 ## Méthode de troncature de la série de Taylor
 
