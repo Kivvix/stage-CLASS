@@ -2,15 +2,15 @@
 
 Un des gros morceaux à optimiser dans *CLASS* est la résolution du *burnup*. Il s'agit de résoudre l'équation différentielle suivante :
 
-![\vec{n}'(t) = A \cdot \vec{n}(t)](http://www.sciweavers.org/tex2img.php?eq=%5Cvec%7Bn%7D%27%28t%29%20%3D%20A%20%5Ccdot%20%5Cvec%7Bn%7D%28t%29&bc=Transparent&fc=Black&im=png&fs=18&ff=mathdesign&edit=0)
+![\vec{n}'(t) = A \cdot \vec{n}(t)](http://www.sciweavers.org/tex2img.php?eq=%5Cvec%7Bn%7D%27%28t%29%20%3D%20A%20%5Ccdot%20%5Cvec%7Bn%7D%28t%29&bc=Transparent&fc=Black&fs=18&ff=mathdesign&edit=0&img=png)
 
 On sait que la solution exacte d'un tel système est la suivante :
 
-![\vec{n}(t) = \text{e}^{At}](http://www.sciweavers.org/tex2img.php?eq=\vec{n}%28t%29%20%3D%20\text{e}^{At}&bc=Transparent&fc=Black&fs=18&ff=mathdesign&edit=0&im=png)
+![\vec{n}(t) = \text{e}^{At}](http://www.sciweavers.org/tex2img.php?eq=\vec{n}%28t%29%20%3D%20\text{e}^{At}&bc=Transparent&fc=Black&fs=18&ff=mathdesign&edit=0&img=png)
 
 Le problème est le calcul de l'exponentielle matricielle qui formellement s'écrit :
 
-![\text{e}^A = \sum_{k \in \mathbb{N}} \frac{A^k}{k!}](http://www.sciweavers.org/tex2img.php?eq=\text{e}^A%20%3D%20\sum_{k%20\in%20\mathbb{N}}%20\frac{A^k}{k!}&bc=Transparent&fc=Black&fs=18&ff=mathdesign&edit=0&im=png)
+![\text{e}^A = \sum_{k \in \mathbb{N}} \frac{A^k}{k!}](http://www.sciweavers.org/tex2img.php?eq=\text{e}^A%20%3D%20\sum_{k%20\in%20\mathbb{N}}%20\frac{A^k}{k!}&bc=Transparent&fc=Black&fs=18&ff=mathdesign&edit=0&img=png)
 
 ## Méthode de troncature de la série de Taylor
 
