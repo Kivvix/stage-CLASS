@@ -1,6 +1,27 @@
 > Sont regroupés ici sous le même document tout ce qui va traiter des conventions adoptées pour l'écriture du code *C++* (et autre) de *CLASS*, mais aussi tout ce qui va autour tel que la gestion de *SVN* ou l'utilisation de tests unitaires
 
-[TOC]
+# Table des matières
+
+* [Guide de style](#guide-de-style)
+	* [Convention de nommage](#convention-de-nommage)
+	* [Indentation](#indentation)
+	* [Blocs vides](#bloc-vide)
+	* [Instanciation des variables](#instanciation-des-variables)
+		* [Cas du constructeur](#cas-du-constructeur)
+	* [Espace de nommage](#espace-de-nommage)
+	* [Commentaires](#commentaires)
+	* [Code minimal d'une classe](#code-minimal-dune-classe)
+		* [L'opérateur égal](#lopérateur-égal)
+	* [Utilisation de la STL](#utilisation-de-la-stl)
+	* [Les exceptions](#les-exceptions)
+* [SVN](#svn)
+* [Tests](#tests)
+	* [Installtion de `google_test`](#installation-de-google_test)
+		* [Sous GNU/Linux](#sous-gnulinux)
+		* [Sous MacOS](#sous-macos)
+	* [Utilisation](#utilisation)
+		* [Écriture d'un test](#Écriture-dun-test)
+
 
 # Guide de style
 
@@ -146,7 +167,7 @@ class ClassName
 
 Ce code respecte la *forme normale de Coplien*. Il s'agit du minimum pour que tout se passe bien et ne pas laisser le compilateur écrire des trucs que l'on ne voudrait pas. Je précise que les comportements bizarres apparaissent lorsque notre classe contient un pointeur, mais il est préférable d'écrire ce code.
 
-### L'opérateur d'égal
+### L'opérateur égal
 
 Petit conseil sur `operator = ()`, il est préférable d'effectuer un test avant d'effectuer la copie comme dans le code suivant :
 
