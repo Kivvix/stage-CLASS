@@ -15,6 +15,7 @@
 	* [Utilisation de la STL](#utilisation-de-la-stl)
 	* [Les exceptions](#les-exceptions)
 * [SVN](#svn)
+	* [Mini-tuto de SVN](#mini-tuto-de-svn)
 * [Tests](#tests)
 	* [Installtion de `google_test`](#installation-de-google_test)
 		* [Sous GNU/Linux](#sous-gnulinux)
