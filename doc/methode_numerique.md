@@ -25,6 +25,10 @@ La *Chebyshev rational approximation method* (CRAM) est une méthode qui consist
 
 Maria Pusa utilise dans [sa publication](http://montecarlo.vtt.fi/download/S32.pdf) la fonction à l'ordre 16, il s'agit donc de calculer deux polynômes matriciels d'ordre 16. Il n'est pas envisageable de calculer comme ça les puissances successives d'une matrice (même problème que le calcul de l'exponentielle de la matrice). En réalité il est possible de calculer la valeur de la fonction en résolvant *seulement* k/2 systèmes linéaires (k étant l'ordre du polynôme choisie).
 
+La formule alors utilisée nécessite le calcul de coefficients constant dépendant uniquement du degré de la fonction utilisée :
+
+![$\text{e}^{At}\vec{n}_0  \simeq r_{k,k}(At)\vec{n}_0 = \alpha_0 \vec{n}_0 + 2 \text{Re} \left( \sum_{j=1}^{k/2} \alpha_j (At - \theta_j I)^{-1} \vec{n}_0 \right)$](img/eq4.png)
+
 La résolution d'un système linéaire avec la méthode du pivot de Gauss a une complexité cubique, l'algorithme de Stassen fait descendre cette complexité légèrement en dessous. De plus les k/2 systèmes à résoudre sont indépendants il est donc possible de paralléliser ces calculs via MPI.
 
 L'erreur relative de cet algorithme commence à diverger à partir de 32 000 ans de simulation (l'erreur dépasse alors 10^(-5) !). Quelques erreurs plus importantes sont observées sur des éléments à demi-vie courte (Béryllium 12 et le Bore 10 dont la demi-vie est de l'ordre de la milliseconde), mais sont d'après Mario Pusa négligeable car ayant peu d'impact sur la suite de la simulation (personnellement je m'y connais plus en astronomie qu'en neutronique, donc mon tableau de Mendeleïev ne contient que l'hydrogène et l'hélium ^^).
