@@ -207,6 +207,48 @@ Il est peut compliqué d'expliquer ceci en quelques lignes ici, mais je pense qu
 
 L'utilisation recommandée est de créer une nouvelle branche pour chaque apport de nouvelle fonctionnalité. Une fois la fonctionnalité finie et opérationnelle, il *suffit* de la merger sur la branche principale.
 
+## Mini-tuto de SVN
+
+> Je n'ai pas encore testé, c'est de la théorie.
+
+**Récupération des sources**
+
+```
+svn check-out svn+ssh://jmassot@svn.in2p3.fr/class
+```
+
+**Commit d'une modification**
+
+```
+svn commit -m "Message indicatif du commit"
+```
+
+**Update**
+
+```
+svn update
+```
+
+**Création d'une branche**
+
+```
+svn copy svn+ssh://svn.in2p3.fr/class/trunk svn+ssh://svn.in2p3.fr/class/branches/NAME_OF_BRANCH -m "Creating a branch of project"
+```
+
+Puis il faut se déplacer dans la nouvelle branche :
+```
+svn switch --relocate svn://svn.in2p3.fr/class/trunk svn://svn.in2p3.fr/class/branches/NAME_OF_BRANCH
+```
+Tout nouveau commit sera effectué dans cette branche.
+
+**Merge des branches**
+
+Une fois la fonctionnalité développée, il faut la *merger* avec la branche principale.
+
+```
+svn merge -r 250:HEAD http://svn.in2p3.fr/class/trunk
+```
+
 # Tests
 
 La mise en place de tests permet d'améliorer la qualité du code dans le sens où cela évite un grand nombre de petits bugs dès le début du développement. De plus cela permet de s'assurer que les modifications que l'on apporte ne perturbe pas d'autres classes.
