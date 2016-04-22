@@ -207,6 +207,8 @@ Il est peut compliqué d'expliquer ceci en quelques lignes ici, mais je pense qu
 
 L'utilisation recommandée est de créer une nouvelle branche pour chaque apport de nouvelle fonctionnalité. Une fois la fonctionnalité finie et opérationnelle, il *suffit* de la merger sur la branche principale.
 
+Pour plus d'information sur les commandes SVN : [ici](http://svnbook.red-bean.com/en/1.7/svn.ref.html)
+
 ## Mini-tuto de SVN
 
 > Je n'ai pas encore testé, c'est de la théorie.
@@ -214,7 +216,7 @@ L'utilisation recommandée est de créer une nouvelle branche pour chaque apport
 **Récupération des sources**
 
 ```
-svn check-out svn+ssh://jmassot@svn.in2p3.fr/class
+svn check-out svn+ssh://${USER}@svn.in2p3.fr/class
 ```
 
 **Commit d'une modification**
@@ -246,8 +248,10 @@ Tout nouveau commit sera effectué dans cette branche.
 Une fois la fonctionnalité développée, il faut la *merger* avec la branche principale.
 
 ```
-svn merge -r 250:HEAD http://svn.in2p3.fr/class/trunk
+svn merge --reintegrate http://svn.in2p3.fr/class/NAME_OF_BRANCH
+svn commit -m "Merge NAME_OF_BRANCH back into trunk!"
 ```
+
 
 # Tests
 
