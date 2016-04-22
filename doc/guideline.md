@@ -216,7 +216,7 @@ Pour plus d'information sur les commandes SVN : [ici](http://svnbook.red-bean.co
 **Récupération des sources**
 
 ```
-svn check-out svn+ssh://${USER}@svn.in2p3.fr/class
+svn check-out svn+ssh://USER@svn.in2p3.fr/class
 ```
 
 **Commit d'une modification**
