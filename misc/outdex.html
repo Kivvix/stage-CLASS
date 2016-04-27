@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Config test</title>
+	<meta charset="utf-8" />
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
+</head>
+
+<body data-ng-app="controllerExample" ng-controller="SettingsController2" >
+
+	<div id="ctrl-exmpl" >
+		<label>Class name: <input type="text" ng-model="name"/></label>
+		<button ng-click="greet()">greet</button><br/>
+		Liste des attributs
+		<ul>
+			<li ng-repeat="attr in attributs">
+				<input type="text"   ng-model="attr.type" placeholder="type" />
+				<input type="text"   ng-model="attr.name" placeholder="nom de l'attribut" />
+				<button ng-click="clearAttribut(attr)">clear</button>
+				<button ng-click="removeAttribut(attr)">X</button>
+			</li>
+			<li>[ <button ng-click="addAttribut()">add</button> ]</li>
+		</ul>
+	<!--	Liste des méthodes
+		<ul>
+			<li ng-repeat="meth in methods">
+				<input type="text"   ng-model="attr.return" placeholder="type de retour" />
+				<input type="text"   ng-model="attr.name" placeholder="nom de la méthode" /> ()
+				<button ng-click="clearMethod(meth)">clear</button>
+				<button ng-click="removeMethod(meth)">X</button>
+			</li>
+			<li>[ <button ng-click="addMethod()">add</button> ]</li>
+		</ul>-->
+
+<code>
+<pre>
+class {{ name }}
+{
+
+private:
+// --- ATTRIBUT ------------------------<span ng-repeat="attr in attributs" >
+	{{ attr.type }} {{ attr.name }};</span>
+	
+public:
+
+// --- CONSTRUCTOR ---------------------
+	{{ name }} ();
+	{{ name }} ( const {{ name }} & )
+
+// --- DESTRUCTOR ----------------------
+	~{{ name }} ();
+
+// --- OPERATOR ------------------------
+	{{ name }} & operator = ( const {{ name }} & );
+
+// --- METHOD --------------------------
+private: <span ng-repeat="attr in attributs" >
+	{{ displayZeroH(attr) }}</span>
+
+public:
+
+};
+</pre>
+</code>
+<hr />
+<pre>
+<code>
+#include "{{ name }}.h"
+
+// --- CONSTRUCTOR ---------------------
+{{ name }}::{{ name }} () :
+	<span ng-repeat="attr in attributs" >{{ attr.name }}(), </span>
+{ ; }
+
+{{ name }}::{{ name }} ( const {{ name }} & a ) :
+	<span ng-repeat="attr in attributs" >{{ attr.name }}(a.{{ attr.name }}), </span>
+{ ; }
+
+// --- DESTRUCTOR ----------------------
+{{ name }}::~{{ name }} ()
+{<span ng-repeat="attr in attributs" >
+{{ displayDelete(attr) }}</span>
+}
+
+// --- OPERATOR ------------------------
+{{ name }} & {{ name }}::operator = ( const {{ name }} & a )
+{
+	if ( &a != this )
+	{<span ng-repeat="attr in attributs" >
+		{{ displayEq(attr) }};</span>
+	}
+	
+	return *this;
+}
+
+// --- METHOD --------------------------<span ng-repeat="attr in attributs" >
+{{ displayZeroC(attr,name) }}</span>
+
+</code>
+</pre>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js" ></script>
+	<script src="app.js" ></script>
+</body>
+
+</html>
+
